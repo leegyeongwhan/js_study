@@ -1,0 +1,13 @@
+{
+  "name": "js-cpu-simulation",
+  "version": "1.0.0",
+  "description": "A simple CPU simulation in JavaScript",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
