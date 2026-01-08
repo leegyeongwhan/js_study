@@ -1,0 +1,163 @@
+/* Atom One Light Inspired Theme */
+:root {
+  /* Base Colors */
+  --bg-color: #fafafa;
+  /* Clean Light Grey Background */
+  --text-color: #383a42;
+  /* Soft Black Text */
+  --card-bg: #ffffff;
+  /* Pure White Card */
+  --border-color: #e5e5e6;
+  /* Light Border */
+
+  /* Accent Colors (Atom Palette) */
+  --primary: #4078f2;
+  /* Blue */
+  --secondary: #50a14f;
+  /* Green */
+  --accent: #e45649;
+  /* Red */
+  --purple: #a626a4;
+  /* Purple */
+  --cyan: #0184bc;
+  /* Cyan */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* Common Card Styles */
+.concept-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  /* Very subtle shadow */
+}
+
+.concept-card h2 {
+  color: var(--text-color);
+  margin-top: 0;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+/* Component Level Styles - Visual Hierarchy */
+.level-box {
+  border-radius: 6px;
+  padding: 20px;
+  margin-top: 15px;
+  position: relative;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+/* Visually distinguish levels with borders and left-margin indentation */
+.level-1 {
+  border: 1px solid #d0d0d0;
+  border-left: 5px solid var(--text-color);
+  /* GrandParent identifier */
+}
+
+.level-2 {
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid var(--secondary);
+  margin-left: 30px;
+}
+
+.level-3 {
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid var(--accent);
+  margin-left: 30px;
+}
+
+.level-4 {
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid var(--purple);
+  margin-left: 30px;
+  background-color: #fcfcfc;
+}
+
+/* Badges */
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.role-grandparent {
+  color: white;
+  background-color: var(--text-color);
+}
+
+.role-parent {
+  color: white;
+  background-color: var(--secondary);
+}
+
+.role-child {
+  color: white;
+  background-color: var(--accent);
+}
+
+.role-grandchild {
+  color: white;
+  background-color: var(--purple);
+}
+
+/* Text Utility */
+.clean-text {
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(64, 120, 242, 0.3);
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #3a6cd9;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
