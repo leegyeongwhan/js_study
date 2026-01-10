@@ -46,13 +46,67 @@ class CPU {
         console.log(`ACC: 0x${this.acc.toString(16).padStart(2, '0')}`);
         console.log(`R1 : 0x${this.r1.toString(16).padStart(2, '0')}`);
         console.log(`R2 : 0x${this.r2.toString(16).padStart(2, '0')}`);
-        console.log(`IR : 0x${this.ir.toString(16).padStart(2, '0')}`);
         console.log("-----------------");
     }
 
     // fetch, decode, execute 단계는 다음 단계에서 구현합니다.
+    fetch() {
+        // [Fetch 단계]: IP가 가리키는 곳에서 명령어를 가져옵니다.
+        const nextInstructionAddress = this.ip;
+        const instruction = this.#memory.load(nextInstructionAddress);
+
+        // [Fetch 완료 후]: IP는 다음 칸으로 이동해야 합니다.
+        this.ip = this.ip + 1;
+
+        return instruction;
+    }
+
+    execute(instruction) {
+        // [Decode & Execute 단계]: 명령어가 뭔지 보고(Decode) 실행(Execute)합니다.
+        switch (instruction) { // Decode: 무슨 명령어니?
+
+            // [MOV_LIT_R1]: 값을 가져와서 R1에 넣어라
+            case INSTRUCTIONS.MOV_LIT_R1: {
+                const literal = this.fetch(); // 다음 칸에 있는 숫자(Literal)를 가져옴
+                this.r1 = literal;            // R1 레지스터에 저장
+                return;
+            }
+
+            // [MOV_LIT_R2]: 값을 가져와서 R2에 넣어라
+            case INSTRUCTIONS.MOV_LIT_R2: {
+                const literal = this.fetch();
+                this.r2 = literal;
+                return;
+            }
+
+            // [ADD_R1_R2]: R1과 R2를 더해서 ACC에 저장해라
+            case INSTRUCTIONS.ADD_R1_R2: {
+                // R1과 R2는 이미 값을 가지고 있음 (Register)
+                const r1Value = this.r1;
+                const r2Value = this.r2;
+
+                // ALU(산술논리장치) 역할: 더하기 수행
+                const result = r1Value + r2Value;
+
+                // 결과는 무조건 누산기(ACC)에 저장됨
+                this.acc = result;
+                return;
+            }
+
+            default: {
+                console.log(`알 수 없는 명령어입니다: 0x${instruction.toString(16)}`);
+            }
+        }
+    }
+
     step() {
-        // TODO: Instruction Cycle 구현
+        // [CPU Cycle]
+        // 1. Fetch: 명령어를 가져온다
+        const instruction = this.fetch();
+
+        // 2. Decode & Execute: 실행한다
+        // (원래는 Decode 단계가 따로 있지만, 여기서는 switch문이 Decode 역할을 겸합니다)
+        return this.execute(instruction);
     }
 }
 
