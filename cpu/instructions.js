@@ -1,14 +1,24 @@
 const INSTRUCTIONS = {
-    // Move Literal to Register 1
-    // 예: MOV_LIT_R1 0x10 -> R1 레지스터에 0x10(16)을 넣어라
-    MOV_LIT_R1: 0x10,
+    // [x86 Instruction]: MOV AX, Immediate
+    // AX 레지스터에 즉시값(Immediate Value)을 넣습니다.
+    // 예: MOV AX, 0x10
+    MOV_AX_IMM: 0x10,
 
-    // Move Literal to Register 2
-    MOV_LIT_R2: 0x11,
+    // [x86 Instruction]: MOV BX, Immediate
+    // BX 레지스터에 즉시값을 넣습니다.
+    MOV_BX_IMM: 0x11,
 
-    // Add Register 1 and Register 2
-    // R1과 R2의 값을 더해서 'Accumulator'에 저장해라
-    ADD_R1_R2: 0x20
+    // [x86 Instruction]: ADD AX, BX
+    // AX = AX + BX
+    // 결과를 Destination(AX)에 저장하는 것이 x86 표준입니다.
+    ADD_AX_BX: 0x20
+};
+
+// [Decoded Info]: 디코드 단계에서 명칭을 확인하기 위한 맵
+export const INSTRUCTION_NAME = {
+    [INSTRUCTIONS.MOV_AX_IMM]: 'MOV_AX_IMM',
+    [INSTRUCTIONS.MOV_BX_IMM]: 'MOV_BX_IMM',
+    [INSTRUCTIONS.ADD_AX_BX]: 'ADD_AX_BX'
 };
 
 // [JS Deep Dive]: 불변성(Immutability)
