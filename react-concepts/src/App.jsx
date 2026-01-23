@@ -1,6 +1,7 @@
 import PropsDrillingExample from './components/PropsDrilling';
 import ContextApiExample from './components/ContextApiExample';
 import StoreExample from './components/StoreExample';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
@@ -22,8 +23,11 @@ function App() {
       <div className="concept-card">
         <h2>3. Solution B: Global Store (Zustand)</h2>
         <p>Ideally used for: Server Data, Complex State.</p>
+        <p>Ideally used for: Server Data, Complex State.</p>
         <StoreExample />
       </div>
+
+      <TodoList />
     </div>
   )
 }
