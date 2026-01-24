@@ -29,7 +29,7 @@ class CPU {
     get ip() { return this.#registers.getUint16(0, true); }
     set ip(value) { this.#registers.setUint16(0, value, true); }
 
-    // Accumulator Register (산술 연산용)
+    // Accumulator Register (산술 연산용) 누산기
     get ax() { return this.#registers.getUint16(2, true); }
     set ax(value) { this.#registers.setUint16(2, value, true); }
 
